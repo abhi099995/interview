@@ -1,0 +1,31 @@
+.parent {
+  /* position: relative; */
+  position: sticky;
+  height: 200vh;
+  background-color: skyblue;
+}
+.child-one {
+  /* position: relative; */
+  /* position: absolute; */
+  /* position: fixed; */
+  position: sticky;
+  top: 10px;
+  /* right: 0; */
+  background-color: yellowgreen;
+}
+.super-child {
+  position: inherit;
+  /* position: relative; */
+  /* position: absolute; */
+  /* position: fixed; */
+  /* position: sticky; */
+  background-color: violet;
+}
+.child-two {
+  position: relative;
+  background-color: red;
+}
+.child-three {
+  position: relative;
+  background-color: yellow;
+}

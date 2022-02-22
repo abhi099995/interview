@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script
+      type="text/javascript"
+      src="http://code.jquery.com/color/jquery.color-2.1.2.js"
+    ></script>
+    <style>
+      body {
+        font-size: 17px;
+        font-family: arial;
+        background: #f4f4f4;
+        line-height: 1.5em;
+      }
+      header {
+        background: #333;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+        border-bottom: 4px #000 solid;
+        margin-bottom: 10px;
+      }
+      #container {
+        width: 90%;
+        margin: auto;
+        padding: 10px;
+      }
+    </style>
+    <script>
+      $(document).ready(function () {
+        /*
+        $("#result").load("test.html", function (responseTxt, statusText, xhr) {
+          if (statusText == "success") {
+            alert("Loading Success");
+          } else if (statusText == "error") {
+            console.log(xhr);
+            alert("error " + xhr.statusText);
+          }
+        });
+        
+        $.get("test.html", function (data) {
+          $("#result").html(data);
+        });
+        
+        $.getJSON("users.json", function (data) {
+          $.each(data, function (i, user) {
+            $("ul#users").append("<li>" + user.firstName + "</li>");
+          });
+        });
+        
+        $.ajax({
+          method: "GET",
+          url: "https://jsonplaceholder.typicode.com/posts",
+          dataType: "json",
+        }).done(function (data) {
+          $.map(data, function (post, i) {
+            $("#result").append(
+              "<h3>" + post.title + "</h3><p>" + post.body + "</p>"
+            );
+          });
+        });
+        */
+        $("#postForm").submit(function (e) {
+          e.preventDefault();
+          let title = $("#title").val();
+          let body = $("#body").val();
+          let url = $(this).attr("action");
+
+          console.log(title);
+          console.log(body);
+          console.log(url);
+          $.post(url, { title: title, body: body }).done(function (data) {
+            console.log("response");
+            console.log(data);
+          });
+        });
+      });
+    </script>
+    <link rel="stylesheet" href="jquery.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jquery || Ajax</title>
+  </head>
+  <body>
+    <header>
+      <h1>Jquery || Ajax</h1>
+    </header>
+    <div id="container">
+      <hr />
+      <div id="result"></div>
+      <ul id="users"></ul>
+      <br />
+      <h2>Add Post</h2>
+      <form id="postForm" action="https://jsonplaceholder.typicode.com/posts">
+        <input type="text" id="title" placeholder="Title" /> <br />
+        <br />
+        <textarea
+          name="textArea"
+          id="body"
+          cols="30"
+          rows="10"
+          placeholder="Enter Description"
+        ></textarea>
+        <br />
+        <input type="submit" value="Submit" />
+      </form>
+    </div>
+  </body>
+</html>

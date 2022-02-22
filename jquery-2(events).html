@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        /*
+        $(".para1").hide();
+        // $("#btn-1").click(() => alert("Mouse Events"));
+        $("#btn-1").on("click", () => {
+          //   console.log($(".para1").is(":hidden"));
+        //   if ($(".para1").is(":hidden")) {
+        //     $(".para1").show();
+        //   } else {
+        //     $(".para1").hide();
+        //   }
+        $(".para1").toggle()
+        });
+        $("#btn-2").click(() => alert("Mouse Events"));
+        
+        $("#btn-1").hover(() => $(".para1").toggle());
+        $("#btn-1").on("mouseenter", () => $(".para1").toggle());
+        $("#btn-1").on("mouseleave", () => $(".para1").toggle());
+        
+        $("#btn-1").on("mousemove", () => $(".para1").toggle());
+    
+        $(document).on("mousemove", (e) => {
+          $("#cords").html("Cords : Y " + e.clientY + " X " + e.clientX);
+        });
+        $("input").focus(() => alert("Focus"));
+        $("input").focus(()=>{
+          $("input#name").css('backgroundColor','pink');
+        })
+        */
+        $("input").focus(function () {
+          // alert("Focus ");
+          $(this).css("background", "pink");
+        });
+        $("input").blur(function () {
+          $(this).css("background", "white");
+        });
+        $("input").keyup(function (e) {
+          if (e.target.value.length >= 6) {
+            // console.log(e.target.value);
+          }
+        });
+        $("select#gender").change(function (e) {
+          // console.log(e.target.value);
+        });
+        $("#form").submit(function (e) {
+          e.preventDefault();
+          let object = {};
+          object.name = $("input[name]").val();
+          object.email = $("input#email").val();
+          object.gender = $("select#gender").val();
+          console.log("User ");
+          console.log(object);
+        });
+      });
+    </script>
+    <link rel="stylesheet" href="jquery.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jquery-2</title>
+  </head>
+  <body>
+    <header>
+      <h1>Jquery Crash Crouse</h1>
+    </header>
+    <div id="container">
+      <h3>Mouse Events</h3>
+      <button id="btn-1">Button-1</button>
+      <button id="btn-2">Button-2</button>
+      <p class="para1">
+        jQuery is a lightweight, "write less, do more", JavaScript library. The
+        purpose of jQuery is to make it much easier to use JavaScript on your
+        website. jQuery takes a lot of common tasks that require many lines of
+        JavaScript code to accomplish, and wraps them into methods that you can
+        call with a single line of code. jQuery also simplifies a lot of the
+        complicated things from JavaScript, like AJAX calls and DOM
+        manipulation.
+      </p>
+      <h1 id="cords"></h1>
+      <hr />
+      <form id="form">
+        <label>Name</label><br />
+        <input type="text" id="name" name="name" />
+        <br />
+        <label>Email</label><br />
+        <input type="text" id="email" name="email" />
+        <br />
+        <label>Gender</label><br />
+        <select id="gender" name="gender">
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+        <br />
+        <input type="submit" value="Submit" />
+      </form>
+    </div>
+
+    <!-- <script>
+      $(document).ready(function () {
+        $("#btn-1").click(() => alert("Mouse Events"));
+        $("#btn-2").click(() => alert("Mouse Events"));
+      });
+    </script> -->
+  </body>
+</html>

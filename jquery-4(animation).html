@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script
+      type="text/javascript"
+      src="http://code.jquery.com/color/jquery.color-2.1.2.js"
+    ></script>
+    <link rel="stylesheet" href="jquery.css" />
+    <style>
+      body {
+        font-size: 17px;
+        font-family: arial;
+        background: #f4f4f4;
+        line-height: 1.5em;
+      }
+      header {
+        background: #333;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+        border-bottom: 4px #000 solid;
+        margin-bottom: 10px;
+      }
+      #container {
+        width: 90%;
+        margin: auto;
+        padding: 10px;
+      }
+
+      #box {
+        background: #333;
+        color: #fff;
+        width: 500px;
+        height: 90px;
+        padding: 40px;
+        text-align: center;
+      }
+
+      #box2 {
+        background: red;
+        width: 100px;
+        height: 100px;
+        position: relative;
+      }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $("#btnFadeOut").click(function () {
+          $("#box").fadeOut(3000, function () {
+            $("#btnFadeOut").text("Its done!");
+          });
+        });
+        $("#btnFadeIn").on("click", function () {
+          $("#box").fadeIn(3000, function () {
+            $("#btnFadeIn").text("Its done!");
+          });
+        });
+        $("#btnFadeTog").on("click", function () {
+          $("#box").fadeToggle(3000, function () {
+            $("#btnFadeTog").text("Its done!");
+          });
+        });
+        $("#btnSlideUp").on("click", function () {
+          $("#box").slideUp(3000, function () {
+            $("#btnSlideUp").text("Its Done!");
+          });
+        });
+        $("#btnSlideDown").on("click", function () {
+          $("#box").slideDown(3000, function () {
+            $("#btnSlideDown").text("Its Done!");
+          });
+        });
+        $("#btnSlideTog").on("click", function () {
+          $("#box").slideToggle(3000, function () {
+            $("#btnSlideTog").text("Its Done!");
+          });
+        });
+        $("#btnStop").on("click", function () {
+          $("#box").stop();
+        });
+        $("#moveRight").on("click", function () {
+          $("#box2").animate({
+            left: 500,
+          });
+        });
+        $("#moveLeft").on("click", function () {
+          $("#box2").animate({
+            left: 0,
+          });
+        });
+        $("#moveAround").on("click", function () {
+          $("#box2").animate({
+            left: 500,
+            backgroundColor: "yellow",
+          });
+          $("#box2").animate({
+            top: 100,
+            backgroundColor: "green",
+          });
+          $("#box2").animate({
+            left: 0,
+            backgroundColor: "red",
+          });
+          $("#box2").animate({
+            top: 0,
+            backgroundColor: "blue",
+          });
+          $("#box2").animate({
+            backgroundColor: "red",
+          });
+        });
+      });
+    </script>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jquery Animations</title>
+  </head>
+  <body>
+    <header>
+      <h1>Jquery Effects And Animations</h1>
+    </header>
+    <div id="container">
+      <button id="btnFadeOut">Fade Out</button>
+      <button id="btnFadeIn">Fade In</button>
+      <button id="btnFadeTog">Fade Toggle</button>
+
+      <hr />
+
+      <button id="btnSlideUp">Slide Up</button>
+      <button id="btnSlideDown">SlideDown</button>
+      <button id="btnSlideTog">Slide Toggle</button>
+      <button id="btnStop">Stop</button>
+      <hr />
+
+      <div id="box"><h1>Hello World</h1></div>
+
+      <hr />
+
+      <button id="moveLeft">Move Left</button>
+      <button id="moveRight">Move Right</button>
+      <button id="moveAround">Move Around</button>
+      <div id="box2"></div>
+    </div>
+  </body>
+</html>
